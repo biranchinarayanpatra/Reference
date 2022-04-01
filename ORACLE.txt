@@ -345,3 +345,33 @@ insert into dept222 values(108,'biranchi',25000,20)
 4)select * from dept222 union all select * from dept221;
 5)select * from dept222 intersect select * from dept221;
 -------------------------------------------------------------------------------------------------
+primary key:- we cannot enter duplicate records and we cannot leave the field empty.
+composite key :- it is used to make more than one column as primary key.
+
+create table mphasisstud221
+(empid number not null,
+name varchar2(30) not null,
+address varchar2(20),
+primary key(empid,name),
+unique(empid,address));
+
+insert into mphasisstud221 values(101,'sandip','Banagalore');
+insert into mphasisstud221 values(101,'sunil','Hyd');
+---------------------------------------------------------------------------------------------------------
+sequence :- The value will automatically increment.example:- accno,rollno,slno..etc.
+
+how to create a sequence.
+step 1:--
+create sequence seq221 increment by 1 start with 1;
+step 2:-
+create table mphasisstud222 (empid number,name varchar2(20),address varchar2(20));
+step 3:-
+insert into mphasisstud222 values(seq221.nextval,'atul','bangalore');
+step 4:-
+select * from mphasisstud222;
+
+select seq221.nextVal from dual;
+select seq221.currVal from dual;
+
+drop sequence seq221;
+-----------------------------------------
